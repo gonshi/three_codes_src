@@ -1,0 +1,195 @@
+$chara: sprite-map("chara/*.png", $spacing:5px);
+$chara-img: sprite-url( $chara );
+$btn: sprite-map("btn/*.png", $spacing:5px);
+$btn-img: sprite-url( $btn ); 
+
+#wrapper{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 750px;
+  min-width: 1200px;
+	overflow: hidden;
+  background: image-url("bg.png");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.logo{
+  text-align: center;
+  img{
+		@include image-size("logo.png");
+  }
+}
+
+.onps{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 250px;
+	.onp__0001{
+		position: absolute;
+		top: 30px;
+		left: 120px;
+		@include scale(1.6);
+		img{
+			@include image-size("onp__0001.png");
+		}
+	}
+	.onp__0002{
+		position: absolute;
+		bottom: 30px;
+		left: 220px;
+		@include scale(1.6);
+		img{
+			@include image-size("onp__0002.png");
+		}
+	}
+	.onp__0003{
+		position: absolute;
+		top: 30px;
+		right: 220px;
+		@include scale(1.6);
+		img{
+			@include image-size("onp__0003.png");
+		}
+	}
+	.onp__0004{
+		position: absolute;
+		bottom: 30px;
+		right: 120px;
+		@include scale(1.6);
+		img{
+			@include image-size("onp__0004.png");
+		}
+	}
+}
+.game{
+  position: absolute;
+  top: 300px;
+  right: 60px;
+	z-index: $zFloat; 
+}
+
+.slot{
+	@include scale(0.8);
+	width: 904px;
+	height: 300px;
+	margin: 40px auto;
+	overflow: visible;
+  background: image-url("slotBg.png");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	.first, .second, .third{
+		float: left;
+		width: 250px;
+		height: 280px;
+		margin: 10px 15px;
+		background: image-url("code.png");
+    background-repeat: repeat-y;
+		background-size: 100% auto;
+	}
+	.first{
+		margin-left: 45px;
+	}
+}
+
+.btns{
+	position: relative;
+	width: 670px;
+	height: 90px;
+	margin: -30px auto 0;
+	.first, .second, .third{
+		float: left;
+		margin: 0 73px;
+		@include sprite-bg("normal", $btn, $btn-img, block); 
+		&.next{
+      cursor: pointer;
+      @include animation( affordance 2s ease 0s infinite );
+      &:hover{
+				@include sprite-bg-position("hover", $btn); 
+      }
+		}
+		&.selected{
+			@include sprite-bg-position("selected", $btn); 
+		}
+	}
+}
+
+.answer{
+  display: none;
+  position: absolute;
+  top: -160px;
+	left: 50%;
+  width: 760px;
+  height: 160px;
+	margin-top: 60px;
+	margin-left: -400px;
+  text-align: center;
+	font-size: 42px;
+}
+
+.charaContainer{
+  position: absolute;
+  top: 280px;
+  left: 40px;
+  @include sprite-bg-size("normal", $chara); 
+}
+
+.chara{
+	position: absolute;
+	top: 50px;
+  @include sprite-bg("normal", $chara, $chara-img, block); 
+
+  &.play{
+    @include sprite-bg("play", $chara, $chara-img, block); 
+  }
+
+  &.think{
+    @include sprite-bg("think", $chara, $chara-img, block); 
+  }
+
+  &.got{
+    @include sprite-bg("got", $chara, $chara-img, block); 
+  }
+}
+
+.guitarEffect__0001{
+	@include scale(1.3);
+	position: absolute;
+	bottom: 20px;
+	right: 40px;
+	opacity: 0;
+}
+
+.guitarEffect__0002{
+	@include scale(1.3);
+	position: absolute;
+	bottom: -30px;
+	right: 40px;
+	opacity: 0;
+}
+
+.jacket{
+	display: none;
+	position: absolute;
+	top: -80px;
+	left: 100px;
+	width: 250px;
+	height: 194px;
+	text-align: center;
+	line-height: 190px;
+	padding-top: 1px;
+	opacity: 0;
+	@include scale(1.3);
+	background: image-url("balloon.png");
+	background-size: 100% 100%;
+	img{
+		width: auto;
+		height: 120px;
+		margin-top: -20px;
+		border-radius: 8px;
+	}
+}
+

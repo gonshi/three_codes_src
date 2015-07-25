@@ -1,0 +1,92 @@
+.threeSize{
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  z-index: 101;
+  background-image: image-url("bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include rotateY(180deg);
+
+  .ttl{
+    width: image-width("threeSize/title.png");
+    height: image-height("threeSize/title.png");
+    margin: 40px auto 0;
+  }
+
+  .boy{
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    width: image-width("threeSize/boy.png");
+    height: image-height("threeSize/boy.png");
+    margin-left: -550px;
+  }
+
+  .girl{
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    width: image-width("threeSize/girl.png");
+    height: image-height("threeSize/girl.png");
+    margin-left: 260px;
+  }
+
+  .notice_container{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.85);
+  }
+
+  .notice{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 960px;
+    height: 480px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 0 10px 5px #000;
+  }
+
+  .notice-txt{
+    width: image-width("threeSize/notice-txt.png");
+    height: image-height("threeSize/notice-txt.png");
+    margin: 120px auto 0;
+  }
+
+  .notice-yes,
+  .notice-no{
+    position: absolute;
+    top: 270px;
+    left: 50%;
+    cursor: pointer;
+    @include transition(transform 0.2s ease 0s);
+
+    &:hover{
+      @include scale(1.2);
+    }
+    &:active{
+      @include scale(1.4);
+    }
+  }
+
+  .notice-yes{
+    margin-left: -170px;
+  }
+
+  .notice-no{
+    margin-top: -5px;
+    margin-left: 50px;
+  }
+}

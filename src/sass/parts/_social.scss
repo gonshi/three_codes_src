@@ -1,0 +1,13 @@
+#social{
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  width: 250px;
+  @include clearfix;
+
+  .twitter,
+  .fb-like{
+    float: right;
+    margin: 0 5px;
+  }
+}

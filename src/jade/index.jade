@@ -1,0 +1,62 @@
+extends /layout/_application
+block title
+  title THREE CODES 
+block body
+  #wrapper
+    h1.logo
+      img(src="img/logo.png" alt="THREE CODES")
+    div.game
+      div.slot
+        p.first
+        p.second
+        p.third
+      div.btns
+        p.first
+        p.second
+        p.third
+      p.answer
+        span.trackName
+        span.break  ／ 
+        span.artistName
+    div.charaContainer
+      p.jacket
+        img(src="/" alt="CD Image")
+      p.chara
+      p.guitarEffect__0001
+        img(src="img/onp__0001.png" alt="onp")
+      p.guitarEffect__0002
+        img(src="img/onp__0002.png" alt="onp")
+
+    p#ura →裏サイトもあるよ
+
+    p#copyright
+      a(href="https://twitter.com/gonshi_com" target="_blank") &copy; gonshi
+    div#social
+      p.twitter
+        a.twitter-share-button(href="https://twitter.com/share" data-lang="ja" data-text="THREE CODES - スロット × 音楽！？ https://www.youtube.com/watch?v=1j2okEr54mw") ツイート
+      div.fb-like(data-href="http://gonshi.github.io/three-codes" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false")
+    // 裏サイト
+    div.threeSize
+      h2.ttl
+        img(src="img/threeSize/title.png" alt="THREE SIZE")
+      p.boy
+        img(src="img/threeSize/boy.png" alt="BOY")
+      p.girl
+        img(src="img/threeSize/girl.png" alt="GIRL")
+      div.notice_container
+        div.notice
+          p.notice-txt
+            img(src="img/threeSize/notice-txt.png" alt="注意事項")
+          p.notice-yes
+            a(href="http://gonshi.github.io/three-size/#skip")
+              img(src="img/threeSize/notice-yes.png" alt="yes")
+          p.notice-no
+            img(src="img/threeSize/notice-no.png" alt="no")
+
+  #error
+    div.error__content
+      p.error__img
+        img(src="img/error.png" alt="PCのChromeブラウザから見てね")
+      p.error__msg PCのChromeブラウザから見てね
+      p.error_video
+        a(href="https://www.youtube.com/watch?v=1j2okEr54mw" target="_blank") サンプル動画はこちら

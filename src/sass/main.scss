@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+@import "compass";
+
+// import base setting files.
+@import "base/value";
+
+// mixin
+@import "base/mixin/sprite";
+@import "base/mixin/size";
+// rest
+@import "base/reset";
+
+// import common style
+@import "common/layout";
+@import "common/keyframes";
+@import "parts/top";
+@import "parts/error";
+@import "parts/ura";
+@import "parts/social";
+@import "parts/threeSize";

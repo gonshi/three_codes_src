@@ -1,0 +1,20 @@
+@include keyframes( affordance ){
+  0%{
+    @include scale( 1 );
+  }
+  30%{
+    @include scale( 1 );
+  }
+  40%{
+    @include scale( 1.2 );
+  }
+  50%{
+    @include scale( 1 );
+  }
+  60%{
+    @include scale( 1.2 );
+  }
+  70%{
+    @include scale( 1 );
+  }
+}
