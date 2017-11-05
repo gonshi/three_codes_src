@@ -246,7 +246,7 @@ body.is_sp{
     .answer{
       display: none;
       position: absolute;
-      top: 360px;
+      top: 400px;
       left: 340px;
       width: 50%;
       height: 160px;
@@ -262,6 +262,20 @@ body.is_sp{
       transform: scale(0.8);
       margin-top: 0;
       margin-left: -24px;
+    }
+
+    .chara{
+        &.think{
+            &:after{
+                position: absolute;
+                width: 200px;
+                bottom: 200px;
+                left: 560px;
+                font-size: 32px;
+                font-weight: bold;
+                content: "考え中...";
+            }
+        }
     }
 
     .jacket{

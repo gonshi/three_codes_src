@@ -299,7 +299,7 @@
 	var lastingTime = 5000; // 演奏後に曲を続かせるduration
   var fadeVal;
   var thinkTime = 1500;
-	ns.defaultFadeVal = 0.013;
+	ns.defaultFadeVal = 0.025;
 
 	ns.itunesSearch = function(options){
 		var params = {
@@ -553,7 +553,11 @@
                 }
             ],
         }, function(){
-            if(id.match('song')) ns.song_loaded = true;
+            if(id.match('song')){
+                setTimeout(function(){
+                    ns.song_loaded = true;
+                }, 200);
+            }
             callback();
         });
         boombox.get(id).volume(0);
@@ -583,6 +587,10 @@
         if(!boombox.get(id)) ns.preload(src);
 
         boombox.get(id).current_volume += volume;
+        boombox.get(id).current_volume =
+            Math.max(
+                Math.min(boombox.get(id).current_volume, 1)
+            , 0);
         boombox.get(id).volume(boombox.get(id).current_volume);
     }
 
@@ -665,6 +673,7 @@
 	ns = ns || {};
 
   ns.showAnswer = function(json){
+    $('.jacket img').attr({'src': ''});
     $('.jacket img').attr({'src': json.results[0].artworkUrl100});
     $('.answer .trackName').text(json.results[0].trackName);
     $('.answer .artistName').text(json.results[0].artistName);

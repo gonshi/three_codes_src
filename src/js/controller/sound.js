@@ -24,7 +24,11 @@
                 }
             ],
         }, function(){
-            if(id.match('song')) ns.song_loaded = true;
+            if(id.match('song')){
+                setTimeout(function(){
+                    ns.song_loaded = true;
+                }, 200);
+            }
             callback();
         });
         boombox.get(id).volume(0);
@@ -54,6 +58,10 @@
         if(!boombox.get(id)) ns.preload(src);
 
         boombox.get(id).current_volume += volume;
+        boombox.get(id).current_volume =
+            Math.max(
+                Math.min(boombox.get(id).current_volume, 1)
+            , 0);
         boombox.get(id).volume(boombox.get(id).current_volume);
     }
 

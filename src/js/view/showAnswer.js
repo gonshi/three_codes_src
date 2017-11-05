@@ -3,6 +3,7 @@
 	ns = ns || {};
 
   ns.showAnswer = function(json){
+    $('.jacket img').attr({'src': ''});
     $('.jacket img').attr({'src': json.results[0].artworkUrl100});
     $('.answer .trackName').text(json.results[0].trackName);
     $('.answer .artistName').text(json.results[0].artistName);
