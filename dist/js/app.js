@@ -669,15 +669,13 @@
     $('.answer .trackName').text(json.results[0].trackName);
     $('.answer .artistName').text(json.results[0].artistName);
 
-    setTimeout(function(){
-      $('.answer')
-        .css({'display': 'block'})
-        .animate({'opacity': 1});
+    $('.answer')
+      .css({'display': 'block'})
+      .animate({'opacity': 1});
 
-      $('.jacket')
-        .css({'display': 'block', 'top': '-80px'})
-        .animate({'opacity': 1, 'top': '-120px'});
-    }, 3000);
+    $('.jacket')
+      .css({'display': 'block', 'top': '-80px'})
+      .animate({'opacity': 1, 'top': '-120px'});
   };
 
   ns.resetAnswer = function(){
