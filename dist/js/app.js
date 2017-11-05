@@ -367,14 +367,14 @@
 	};
 
     ns.itunesPlay = function(){
-      ns.showAnswer(ns.json);
-
       // thinking expression
       $('.chara').removeClass( 'play' ).addClass( 'think' );
       setTimeout(function(){ //thinking time expression
         var play = function(){
             if(ns.song_loaded){
                 var delay;
+
+                ns.showAnswer(ns.json);
                 $('.chara').removeClass( 'think' ).addClass( 'got' );
                 if( ( delay = ns.songList[ns.codePattern][ns.currentSong].start ) < 0 ){
                   setTimeout(function(){
