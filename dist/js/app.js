@@ -4,36 +4,36 @@
 
   ns.ua = function(){
     var _agent = navigator.userAgent.toLowerCase();
-    if( _agent.match('iphone') || _agent.match('ipod') || _agent.match('ipad') || _agent.match('android') || !_agent.match('chrome') ){
-      $('#wrapper').css({'display': 'none'});
-      $('#error').css({'display': 'block'});
+    if(_agent.match('iphone') || _agent.match('ipod') || _agent.match('android')){
+        $('body').addClass('is_sp');
+        window.mobile = true;
     }
   };
-	
+
   global.codes = ns;
 })(this, document, jQuery, this.codes);
 
 (function(global, doc, $, ns, undefined) {
 	'use strict';
 	ns = ns || {};
-  
+
   ns.songReset = function(){
     ns.songList = [
+      //[
+      //  {
+      //    id: '129767452',
+      //    code:{
+      //      first: 'Am',
+      //      second: 'Em',
+      //      third: 'F'
+      //    },
+      //    bpm: 97,
+      //    beat: 2,
+      //    start: 14.7
+      //  } // チェリー
+      //],
       [
         {
-          id: '129767452',
-          code:{
-            first: 'Am',
-            second: 'Em',
-            third: 'F'
-          },
-          bpm: 97,
-          beat: 2,
-          start: 14.7
-        } // チェリー
-      ],
-      [
-        {	
           id: '827638927',
           code:{
             first: 'Fs',
@@ -57,20 +57,20 @@
           beat: 2,
           start: 0.6
         } // funny bunny
-      ],  
-      [
-        {
-          id: '592933803',
-          code:{
-            first: 'C',
-            second: 'D',
-            third: 'Em'
-          },
-          bpm: 100,
-          beat: 2,
-          start: 3.8 
-        } // 今夜はブギーバック
-      ], 
+      ],
+      //[
+      //  {
+      //    id: '592933803',
+      //    code:{
+      //      first: 'C',
+      //      second: 'D',
+      //      third: 'Em'
+      //    },
+      //    bpm: 100,
+      //    beat: 2,
+      //    start: 3.8
+      //  } // 今夜はブギーバック
+      //],
       /*
       [
         {
@@ -84,7 +84,7 @@
           beat: 4,
           start: -1.3
         } //HELP
-      ] 
+      ]
       */
       [
         {
@@ -137,7 +137,7 @@
 					beat: 2,
 					start: -0.5
 				}
-			], // CALL ME	
+			], // CALL ME
 			[
 				{
 					id: '201281527',
@@ -150,20 +150,20 @@
 					beat: 2,
 					start: 10.9
 				}
-			], // CALL ME	
-			[
-				{
-					id: '379048300',
-					code:{
-						first: 'Bm',
-						second: 'G',
-						third: 'A'
-					},
-					bpm: 150,
-					beat: 4,
-					start: 1.3
-				}
-			], // 忘却の空 
+			], // CALL ME
+			//[
+			//	{
+			//		id: '379048300',
+			//		code:{
+			//			first: 'Bm',
+			//			second: 'G',
+			//			third: 'A'
+			//		},
+			//		bpm: 150,
+			//		beat: 4,
+			//		start: 1.3
+			//	}
+			//], // 忘却の空
 			[
 				{
 					id: '681020904',
@@ -176,7 +176,7 @@
 					beat: 4,
 					start: 9.4
 				}
-			], // 恋するフォーチュンクッキー 
+			], // 恋するフォーチュンクッキー
 			[
 				{
 					id: '574710838',
@@ -189,7 +189,7 @@
 					beat: 4,
 					start: 13.7
 				}
-			], // GROMOROUS SKY 
+			], // GROMOROUS SKY
 			[
 				{
 					id: '174420177',
@@ -202,7 +202,7 @@
 					beat: 4,
 					start: 16.7
 				}
-			], // 勝手にしやがれ 
+			], // 勝手にしやがれ
       /*
 			[
 				{
@@ -216,7 +216,7 @@
 					beat: 4,
 					start: 14.0
 				}
-			], // By the way 
+			], // By the way
       */
 			[
 				{
@@ -228,9 +228,9 @@
 					},
 					bpm: 138,
 					beat: 4,
-					start: 8.0 
+					start: 8.0
 				}
-			], // Overdrive 
+			], // Overdrive
 			[
 				{
 					id: '321108219',
@@ -241,9 +241,9 @@
 					},
 					bpm: 100,
 					beat: 4,
-					start: 11.5 
+					start: 11.5
 				}
-			] // Taylor swift Teardrops On My Guitar 
+			] // Taylor swift Teardrops On My Guitar
 		];
 	};
 	global.codes = ns;
@@ -252,7 +252,7 @@
 (function(global, doc, $, ns, undefined) {
 	'use strict';
 	ns = ns || {};
-  ns.speed = 1500; 
+  ns.speed = 1500;
   ns.maxHeight = 10499;
 	ns.codeArray = ['A','B','C','D','E','F','G','Am','Bm','Cm','Dm','Em','Fm','Gm','As','Bs','Cs','Ds','Es','Fs','Gs','Ab','Bb','Cb','Db','Eb','Fb','Gb','Asm','Bsm','Csm','Dsm','Esm','Fsm','Gsm','Abm','Bbm','Cbm','Dbm','Ebm','Fbm','Gbm'];
 	ns.codeHeight = 250;
@@ -283,7 +283,7 @@
       }
     }
     if(exist_code){
-      ns.codeSound[codeArray_i] = new Audio( 'audio/' + ns.codeArray[codeArray_i] + '.mp3');
+      ns.codeSound[codeArray_i] = 'audio/' + ns.codeArray[codeArray_i] + '.mp3';
     }
 	}
   global.codes = ns;
@@ -356,96 +356,90 @@
 				//console.log('itunes api search error. ', arguments);
 			},
 		});
+
 		var play = function(json) {
-      var is_played = false;
-      fadeVal = ns.defaultFadeVal;
-      if( json.results[0].previewUrl.substr(-3, 3) === 'm4v' ) fadeVal = 0.038; // ビデオは音が小さいので最大まであげる
-      ns.song = new Audio(json.results[0].previewUrl);
-
-      ns.song.addEventListener( 'canplaythrough', function(){
-        if( is_played === true ){ // play only once
-          return;
-        }
-        is_played = true;
-
-        ns.showAnswer(json);
-        ns.song.volume = 0;
-        // thinking expression
-        $('.chara').removeClass( 'play' ).addClass( 'think' );
-        setTimeout(function(){ //thinking time expression	
-          var delay;
-          $('.chara').removeClass( 'think' ).addClass( 'got' );
-          if( ( delay = ns.songList[ns.codePattern][ns.currentSong].start ) < 0 ){
-            setTimeout(function(){
-              ns.song.play();
-              fadeIn();
-            }, delay * -1000);
-          }
-          else{
-            ns.song.currentTime = delay;
-            ns.song.play();
-            fadeIn();
-          }
-          setTimeout(function(){
-            danceAndPlay('first', ns.tempo, ns.songList[ns.codePattern][ns.currentSong].beat );
-            setTimeout(function(){
-              $('.chara').removeClass( 'got' );
-            }, thinkTime); 
-          }, 1400 ); // wait for fade in expression of the song
-        }, thinkTime);
-      } );
-		};
+            ns.json = json;
+            fadeVal = ns.defaultFadeVal;
+            if( json.results[0].previewUrl.substr(-3, 3) === 'm4v' ) fadeVal = 0.038; // ビデオは音が小さいので最大まであげる
+            ns.song = json.results[0].previewUrl;
+            ns.preload(ns.song);
+        };
 	};
+
+    ns.itunesPlay = function(){
+      ns.showAnswer(ns.json);
+
+      // thinking expression
+      $('.chara').removeClass( 'play' ).addClass( 'think' );
+      setTimeout(function(){ //thinking time expression
+        var delay;
+        $('.chara').removeClass( 'think' ).addClass( 'got' );
+        if( ( delay = ns.songList[ns.codePattern][ns.currentSong].start ) < 0 ){
+          setTimeout(function(){
+            ns.play(ns.song);
+            //fadeIn();
+          }, delay * -1000);
+        }
+        else{
+          ns.play(ns.song, delay);
+        }
+        setTimeout(function(){
+          danceAndPlay('first', ns.tempo, ns.songList[ns.codePattern][ns.currentSong].beat );
+          setTimeout(function(){
+            $('.chara').removeClass( 'got' );
+          }, thinkTime);
+        }, 1400 ); // wait for fade in expression of the song
+      }, thinkTime);
+    };
 
 	var danceAndPlay = function(type, tempo, beat){
 		var _i = 1;
 		var typeNum = ns.typeList.indexOf(type);
 		var codeName = ns.songList[ns.codePattern][ns.currentSong].code[type];
-		ns.codeSound[ ns.codeArray.indexOf(codeName) ].currentTime = 0;
-		ns.codeSound[ ns.codeArray.indexOf(codeName) ].play();
+        ns.play(ns.codeSound[ns.codeArray.indexOf(codeName)]);
 		animateCode(type);
 		for(; _i < beat; _i++){
 			animateCode(type, tempo, _i);
 		}
 		setTimeout(function(){
-			if( typeNum + 1 < 3 ) danceAndPlay(ns.typeList[typeNum + 1], ns.tempo, beat); 
+			if( typeNum + 1 < 3 ) danceAndPlay(ns.typeList[typeNum + 1], ns.tempo, beat);
 			else{
 				setTimeout(function(){
-					fadeOut();
+					//fadeOut();
 				}, lastingTime);
 			}
 		}, tempo * beat * 1000);
 	};
 
-	var fadeIn = function(){
-		setTimeout(function(){
-			ns.song.volume += fadeVal;
-			fadeCount++;
-			if( fadeCount < fadeLimit ){
-				fadeIn();
-			}
-			else{
-				fadeCount = 0;
-			}
-		},interval);
-	};
+	//var fadeIn = function(){
+	//	setTimeout(function(){
+	//		ns.song.volume += fadeVal;
+	//		fadeCount++;
+	//		if( fadeCount < fadeLimit ){
+	//			fadeIn();
+	//		}
+	//		else{
+	//			fadeCount = 0;
+	//		}
+	//	},interval);
+	//};
 
-	var fadeOut = function(){
-		setTimeout(function(){
-			ns.song.volume -= fadeVal;
-			fadeCount++;
-			if( fadeCount < fadeLimit - 1){
-				fadeOut();
-			}
-			else{
-				ns.song.pause();
-				fadeCount = 0;
-        ns.songList.splice( ns.codePattern, 1); // 一度出たやつはもう出ないようにする
-        if( ns.songList.length === 0 ) ns.songReset();
-				ns.init();
-			}
-		},interval);
-	};
+	//var fadeOut = function(){
+	//	setTimeout(function(){
+	//		ns.song.volume -= fadeVal;
+	//		fadeCount++;
+	//		if( fadeCount < fadeLimit - 1){
+	//			fadeOut();
+	//		}
+	//		else{
+	//			ns.song.pause();
+	//			fadeCount = 0;
+    //    ns.songList.splice( ns.codePattern, 1); // 一度出たやつはもう出ないようにする
+    //    if( ns.songList.length === 0 ) ns.songReset();
+	//			ns.init();
+	//		}
+	//	},interval);
+	//};
 
 	var animateCode = function(type, tempo, count){
 		setTimeout(function(){
@@ -468,39 +462,116 @@
 		var nextPos = -1 * ns.codeHeight * nextIndex;
 		var slotTarget = $('.slot .' + type);
 		var btnTarget = $('.btns .' + type);
+
+        if(_type === 0){
+            for(var i = 0; i < 3; i++){
+              var type = ns.typeList[i];
+              var _nextIndex = ns.codeArray.indexOf( ns.songList[ns.codePattern][ns.currentSong].code[type] );
+              ns.preload(ns.codeSound[_nextIndex]);
+            }
+        }
+
 		btnTarget.addClass('next');
 		btnTarget.on('click', function(){
 			slotTarget.clearQueue().stop();
 			slotTarget.css({'background-position': '0 ' + nextPos + 'px'});
-			ns.codeSound[nextIndex].play();
+
+			ns.play(ns.codeSound[nextIndex]);
 			btnTarget.off('click').addClass('selected').removeClass('next');
-      // chara animate
-      $('.chara').addClass( 'play' );
+            // chara animate
+            $('.chara').addClass( 'play' );
 
-      // guitar Effect
-      $('.guitarEffect__0001')
-        .css({'bottom': '20px', 'right': '40px', 'opacity': 0})
-        .animate({'bottom': '10px', 'right': '10px', 'opacity': 1}, 500,'linear')
-        .animate({'bottom': 0, 'right': '-20px', 'opacity': 0}, 500,'linear');
+            // guitar Effect
+            $('.guitarEffect__0001')
+              .css({'bottom': '20px', 'right': '40px', 'opacity': 0})
+              .animate({'bottom': '10px', 'right': '10px', 'opacity': 1}, 500,'linear')
+              .animate({'bottom': 0, 'right': '-20px', 'opacity': 0}, 500,'linear');
 
-      $('.guitarEffect__0002')
-        .css({'bottom': '-30px', 'right': '40px', 'opacity': 0})
-        .animate({'bottom': '-60px', 'right': '20px', 'opacity': 1}, 500,'linear')
-        .animate({'bottom': '-90px', 'right': 0, 'opacity': 0}, 500,'linear');
+            $('.guitarEffect__0002')
+              .css({'bottom': '-30px', 'right': '40px', 'opacity': 0})
+              .animate({'bottom': '-60px', 'right': '20px', 'opacity': 1}, 500,'linear')
+              .animate({'bottom': '-90px', 'right': 0, 'opacity': 0}, 500,'linear');
 
 
-      setTimeout(function(){
-        // for Next Step
-        if( _type === 2 ){
-          ns.itunesLookUp(ns.songList[ns.codePattern][ns.currentSong].id);
-        }
-        else{
-          $( '.chara' ).removeClass( 'play' );
-          ns.btnHandler( _type + 1 );
-        }
-      }, strokeTime);
+            if(_type === 0){
+                ns.itunesLookUp(ns.songList[ns.codePattern][ns.currentSong].id);
+            }
+
+            setTimeout(function(){
+              if(_type === 2){
+                  ns.itunesPlay();
+              }
+              else{
+                $( '.chara' ).removeClass( 'play' );
+                ns.btnHandler( _type + 1 );
+              }
+            }, strokeTime);
 		});
 	};
+
+	global.codes = ns;
+})(this, document, jQuery, this.codes);
+
+(function(global, doc, $, ns, undefined) {
+	'use strict';
+	ns = ns || {};
+
+    boombox.setup();
+    boombox.visibilityChange = new Function();
+    //boombox.onFocus = new Function();
+    boombox.onPageShow = new Function();
+    boombox.onBlur = new Function();
+    boombox.onPageHide = new Function();
+
+    ns.preload = function(src, _callback){
+        var callback = _callback || new Function();
+        var id;
+        if(src.match(/audio\/(.*?)\.mp3/)){
+            id = (src.match(/audio\/(.*?)\.mp3/))[1];
+        }
+        else{
+            id = 'song';
+        }
+
+        // preload
+        boombox.load(id, {
+            src: [
+                {
+                    media: 'audio/mp3',
+                    path: src
+                }
+            ],
+        }, function(){
+            console.log(id);
+            callback();
+        });
+        boombox.get(id).volume(0);
+        boombox.get(id).play();
+        boombox.get(id).pause();
+        boombox.get(id).volume(1);
+    };
+
+    ns.play = function(src, _delay){
+        var id;
+        if(src.match(/audio\/(.*?)\.mp3/)){
+            id = (src.match(/audio\/(.*?)\.mp3/))[1];
+        }
+        else{
+            id = 'song';
+        }
+
+        if(!boombox.get(id)) ns.preload(src);
+
+        var delay = _delay || 0;
+
+        if(delay === 0){
+            boombox.get(id).replay();
+        }
+        else{
+            boombox.get(id).state.time.pause = (boombox.get(id).state.time.progress + delay) * 1000;
+            boombox.get(id).resume();
+        }
+    };
 
 	global.codes = ns;
 })(this, document, jQuery, this.codes);

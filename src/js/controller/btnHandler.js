@@ -10,7 +10,7 @@
 		var btnTarget = $('.btns .' + type);
 
         if(_type === 0){
-            for(let i = 0; i < 3; i++){
+            for(var i = 0; i < 3; i++){
               var type = ns.typeList[i];
               var _nextIndex = ns.codeArray.indexOf( ns.songList[ns.codePattern][ns.currentSong].code[type] );
               ns.preload(ns.codeSound[_nextIndex]);
