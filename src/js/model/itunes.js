@@ -81,23 +81,37 @@
       // thinking expression
       $('.chara').removeClass( 'play' ).addClass( 'think' );
       setTimeout(function(){ //thinking time expression
-        var delay;
-        $('.chara').removeClass( 'think' ).addClass( 'got' );
-        if( ( delay = ns.songList[ns.codePattern][ns.currentSong].start ) < 0 ){
-          setTimeout(function(){
-            ns.play(ns.song);
-            //fadeIn();
-          }, delay * -1000);
-        }
-        else{
-          ns.play(ns.song, delay);
-        }
-        setTimeout(function(){
-          danceAndPlay('first', ns.tempo, ns.songList[ns.codePattern][ns.currentSong].beat );
-          setTimeout(function(){
-            $('.chara').removeClass( 'got' );
-          }, thinkTime);
-        }, 1400 ); // wait for fade in expression of the song
+        var play = function(){
+            if(ns.song_loaded){
+                var delay;
+                $('.chara').removeClass( 'think' ).addClass( 'got' );
+                if( ( delay = ns.songList[ns.codePattern][ns.currentSong].start ) < 0 ){
+                  setTimeout(function(){
+                    ns.setVolume(ns.song, 0);
+                    ns.play(ns.song);
+                    fadeIn();
+                  }, delay * -1000);
+                }
+                else{
+                  ns.setVolume(ns.song, 0);
+                  ns.play(ns.song, delay);
+                  fadeIn();
+                }
+                setTimeout(function(){
+                  danceAndPlay('first', ns.tempo, ns.songList[ns.codePattern][ns.currentSong].beat );
+                  setTimeout(function(){
+                    $('.chara').removeClass( 'got' );
+                  }, thinkTime);
+                }, 1400 ); // wait for fade in expression of the song
+
+                ns.song_loaded = false;
+            }
+            else{
+                requestAnimationFrame(play);
+            }
+        };
+
+        play();
       }, thinkTime);
     };
 
@@ -114,41 +128,42 @@
 			if( typeNum + 1 < 3 ) danceAndPlay(ns.typeList[typeNum + 1], ns.tempo, beat);
 			else{
 				setTimeout(function(){
-					//fadeOut();
+					fadeOut();
 				}, lastingTime);
 			}
 		}, tempo * beat * 1000);
 	};
 
-	//var fadeIn = function(){
-	//	setTimeout(function(){
-	//		ns.song.volume += fadeVal;
-	//		fadeCount++;
-	//		if( fadeCount < fadeLimit ){
-	//			fadeIn();
-	//		}
-	//		else{
-	//			fadeCount = 0;
-	//		}
-	//	},interval);
-	//};
+	var fadeIn = function(){
+        setTimeout(function(){
+            ns.changeVolume(ns.song, fadeVal);
+            fadeCount++;
+            if( fadeCount < fadeLimit ){
+                fadeIn();
+            }
+            else{
+                fadeCount = 0;
+            }
+        },interval);
+	};
 
-	//var fadeOut = function(){
-	//	setTimeout(function(){
-	//		ns.song.volume -= fadeVal;
-	//		fadeCount++;
-	//		if( fadeCount < fadeLimit - 1){
-	//			fadeOut();
-	//		}
-	//		else{
-	//			ns.song.pause();
-	//			fadeCount = 0;
-    //    ns.songList.splice( ns.codePattern, 1); // 一度出たやつはもう出ないようにする
-    //    if( ns.songList.length === 0 ) ns.songReset();
-	//			ns.init();
-	//		}
-	//	},interval);
-	//};
+	var fadeOut = function(){
+        setTimeout(function(){
+            ns.changeVolume(ns.song, -fadeVal);
+            fadeCount++;
+
+            if( fadeCount < fadeLimit - 1){
+                fadeOut();
+            }
+            else{
+                ns.pause(ns.song);
+                fadeCount = 0;
+                ns.songList.splice( ns.codePattern, 1); // 一度出たやつはもう出ないようにする
+                if( ns.songList.length === 0 ) ns.songReset();
+                ns.init();
+            }
+        },interval);
+	};
 
 	var animateCode = function(type, tempo, count){
 		setTimeout(function(){
