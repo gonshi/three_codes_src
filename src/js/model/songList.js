@@ -1,24 +1,24 @@
 (function(global, doc, $, ns, undefined) {
 	'use strict';
 	ns = ns || {};
-  
+
   ns.songReset = function(){
     ns.songList = [
+      //[
+      //  {
+      //    id: '129767452',
+      //    code:{
+      //      first: 'Am',
+      //      second: 'Em',
+      //      third: 'F'
+      //    },
+      //    bpm: 97,
+      //    beat: 2,
+      //    start: 14.7
+      //  } // チェリー
+      //],
       [
         {
-          id: '129767452',
-          code:{
-            first: 'Am',
-            second: 'Em',
-            third: 'F'
-          },
-          bpm: 97,
-          beat: 2,
-          start: 14.7
-        } // チェリー
-      ],
-      [
-        {	
           id: '827638927',
           code:{
             first: 'Fs',
@@ -42,20 +42,20 @@
           beat: 2,
           start: 0.6
         } // funny bunny
-      ],  
-      [
-        {
-          id: '592933803',
-          code:{
-            first: 'C',
-            second: 'D',
-            third: 'Em'
-          },
-          bpm: 100,
-          beat: 2,
-          start: 3.8 
-        } // 今夜はブギーバック
-      ], 
+      ],
+      //[
+      //  {
+      //    id: '592933803',
+      //    code:{
+      //      first: 'C',
+      //      second: 'D',
+      //      third: 'Em'
+      //    },
+      //    bpm: 100,
+      //    beat: 2,
+      //    start: 3.8
+      //  } // 今夜はブギーバック
+      //],
       /*
       [
         {
@@ -69,7 +69,7 @@
           beat: 4,
           start: -1.3
         } //HELP
-      ] 
+      ]
       */
       [
         {
@@ -122,7 +122,7 @@
 					beat: 2,
 					start: -0.5
 				}
-			], // CALL ME	
+			], // CALL ME
 			[
 				{
 					id: '201281527',
@@ -135,20 +135,20 @@
 					beat: 2,
 					start: 10.9
 				}
-			], // CALL ME	
-			[
-				{
-					id: '379048300',
-					code:{
-						first: 'Bm',
-						second: 'G',
-						third: 'A'
-					},
-					bpm: 150,
-					beat: 4,
-					start: 1.3
-				}
-			], // 忘却の空 
+			], // CALL ME
+			//[
+			//	{
+			//		id: '379048300',
+			//		code:{
+			//			first: 'Bm',
+			//			second: 'G',
+			//			third: 'A'
+			//		},
+			//		bpm: 150,
+			//		beat: 4,
+			//		start: 1.3
+			//	}
+			//], // 忘却の空
 			[
 				{
 					id: '681020904',
@@ -161,7 +161,7 @@
 					beat: 4,
 					start: 9.4
 				}
-			], // 恋するフォーチュンクッキー 
+			], // 恋するフォーチュンクッキー
 			[
 				{
 					id: '574710838',
@@ -174,7 +174,7 @@
 					beat: 4,
 					start: 13.7
 				}
-			], // GROMOROUS SKY 
+			], // GROMOROUS SKY
 			[
 				{
 					id: '174420177',
@@ -187,7 +187,7 @@
 					beat: 4,
 					start: 16.7
 				}
-			], // 勝手にしやがれ 
+			], // 勝手にしやがれ
       /*
 			[
 				{
@@ -201,7 +201,7 @@
 					beat: 4,
 					start: 14.0
 				}
-			], // By the way 
+			], // By the way
       */
 			[
 				{
@@ -213,9 +213,9 @@
 					},
 					bpm: 138,
 					beat: 4,
-					start: 8.0 
+					start: 8.0
 				}
-			], // Overdrive 
+			], // Overdrive
 			[
 				{
 					id: '321108219',
@@ -226,9 +226,9 @@
 					},
 					bpm: 100,
 					beat: 4,
-					start: 11.5 
+					start: 11.5
 				}
-			] // Taylor swift Teardrops On My Guitar 
+			] // Taylor swift Teardrops On My Guitar
 		];
 	};
 	global.codes = ns;

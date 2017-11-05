@@ -12,19 +12,19 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('test', [
-        'jshint:all',
+        //'jshint:all',
         'karma'
     ]);
 
     grunt.registerTask('default', function() {
         grunt.task.run([
-            'jshint:all'
+            //'jshint:all'
         ]);
     });
 
     grunt.registerTask('dev', function() {
         grunt.task.run([
-            'jshint:all',
+            //'jshint:all',
             'copy:js',
             'copy:img',
             'jade:compile',

@@ -30,7 +30,7 @@ module.exports = function(grunt) {
 
             grunt.config.set(['copy', 'js', 'files'], files);
             grunt.config.set(['jshint', 'each', 'files'], files);
-            return ['jshint:each', 'copy:js'];
+            return ['copy:js'];
         },
         scss: function() {
             return ['compass:dev'];

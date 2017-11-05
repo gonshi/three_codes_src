@@ -4,6 +4,7 @@
   "/js/model/value.js",
   "/js/model/itunes.js",
   "/js/controller/btnHandler.js",
+  "/js/controller/sound.js",
   "/js/view/scroll.js",
   "/js/view/showAnswer.js",
   "/js/main.js"

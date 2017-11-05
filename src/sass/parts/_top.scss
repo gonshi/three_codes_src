@@ -1,7 +1,7 @@
 $chara: sprite-map("chara/*.png", $spacing:5px);
 $chara-img: sprite-url( $chara );
 $btn: sprite-map("btn/*.png", $spacing:5px);
-$btn-img: sprite-url( $btn ); 
+$btn-img: sprite-url( $btn );
 
 #wrapper{
   position: relative;
@@ -67,9 +67,12 @@ $btn-img: sprite-url( $btn );
 }
 .game{
   position: absolute;
-  top: 300px;
-  right: 60px;
-	z-index: $zFloat; 
+  top: 50%;
+  left: 50%;
+  margin-top: 120px;
+  margin-left: 200px;
+  z-index: $zFloat;
+  transform: translate(-50%, -50%);
 }
 
 .slot{
@@ -78,7 +81,7 @@ $btn-img: sprite-url( $btn );
 	height: 300px;
 	margin: 40px auto;
 	overflow: visible;
-  background: image-url("slotBg.png");
+    background: image-url("slotBg.png");
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	.first, .second, .third{
@@ -103,16 +106,16 @@ $btn-img: sprite-url( $btn );
 	.first, .second, .third{
 		float: left;
 		margin: 0 73px;
-		@include sprite-bg("normal", $btn, $btn-img, block); 
+		@include sprite-bg("normal", $btn, $btn-img, block);
 		&.next{
       cursor: pointer;
       @include animation( affordance 2s ease 0s infinite );
       &:hover{
-				@include sprite-bg-position("hover", $btn); 
+				@include sprite-bg-position("hover", $btn);
       }
 		}
 		&.selected{
-			@include sprite-bg-position("selected", $btn); 
+			@include sprite-bg-position("selected", $btn);
 		}
 	}
 }
@@ -132,26 +135,29 @@ $btn-img: sprite-url( $btn );
 
 .charaContainer{
   position: absolute;
-  top: 280px;
-  left: 40px;
-  @include sprite-bg-size("normal", $chara); 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 120px;
+  margin-left: -480px;
+  @include sprite-bg-size("normal", $chara);
 }
 
 .chara{
 	position: absolute;
-	top: 50px;
-  @include sprite-bg("normal", $chara, $chara-img, block); 
+	bottom: 0;
+  @include sprite-bg("normal", $chara, $chara-img, block);
 
   &.play{
-    @include sprite-bg("play", $chara, $chara-img, block); 
+    @include sprite-bg("play", $chara, $chara-img, block);
   }
 
   &.think{
-    @include sprite-bg("think", $chara, $chara-img, block); 
+    @include sprite-bg("think", $chara, $chara-img, block);
   }
 
   &.got{
-    @include sprite-bg("got", $chara, $chara-img, block); 
+    @include sprite-bg("got", $chara, $chara-img, block);
   }
 }
 
@@ -193,3 +199,76 @@ $btn-img: sprite-url( $btn );
 	}
 }
 
+body.is_sp{
+    #wrapper{
+      min-height: 0;
+      min-width: 0;
+      background: image-url("bg_sp.jpg");
+      background-size: 100% auto;
+      background-position: center top;
+    }
+
+    .logo{
+      margin-top: 32px;
+      img{
+          width: 100%;
+          height: auto;
+      }
+    }
+
+    .game{
+      position: relative;
+      top: auto;
+      left: auto;
+      width: 100%;
+      margin-top: 0;
+      margin-left: 0;
+      z-index: $zFloat;
+      transform: none;
+    }
+
+    .slot{
+        @include scale(0.6);
+        transform-origin: left top;
+        margin: 0 auto auto 108px;
+    }
+
+    .btns{
+        position: relative;
+        width: 510px;
+        margin: 0 auto;
+        transform: translateY(-96px);
+        .first, .second, .third{
+            margin: 0 48px;
+        }
+    }
+
+    .answer{
+      display: none;
+      position: absolute;
+      top: 360px;
+      left: 340px;
+      width: 50%;
+      height: 160px;
+      margin-top: 0;
+      margin-left: 0;
+      font-size: 24px;
+    }
+
+    .charaContainer{
+      position: relative;
+      top: auto;
+      left: auto;
+      transform: scale(0.8);
+      margin-top: 0;
+      margin-left: -24px;
+    }
+
+    .jacket{
+        top: -160px;
+    }
+
+    #ura{
+        display: none;
+    }
+}

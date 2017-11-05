@@ -4,5 +4,6 @@
     "js/lib/jquery.easing.min.js",
 		"js/lib/jquery.backgroundpos.min.js",
     "js/lib/jquery.transform2d.js",
-    "js/lib/velocity.min.js"
+    "js/lib/velocity.min.js",
+    "js/lib/boombox.min.js"
 ]

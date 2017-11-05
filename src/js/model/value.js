@@ -1,7 +1,7 @@
 (function(global, doc, $, ns, undefined) {
 	'use strict';
 	ns = ns || {};
-  ns.speed = 1500; 
+  ns.speed = 1500;
   ns.maxHeight = 10499;
 	ns.codeArray = ['A','B','C','D','E','F','G','Am','Bm','Cm','Dm','Em','Fm','Gm','As','Bs','Cs','Ds','Es','Fs','Gs','Ab','Bb','Cb','Db','Eb','Fb','Gb','Asm','Bsm','Csm','Dsm','Esm','Fsm','Gsm','Abm','Bbm','Cbm','Dbm','Ebm','Fbm','Gbm'];
 	ns.codeHeight = 250;
@@ -32,7 +32,7 @@
       }
     }
     if(exist_code){
-      ns.codeSound[codeArray_i] = new Audio( 'audio/' + ns.codeArray[codeArray_i] + '.mp3');
+      ns.codeSound[codeArray_i] = 'audio/' + ns.codeArray[codeArray_i] + '.mp3';
     }
 	}
   global.codes = ns;
