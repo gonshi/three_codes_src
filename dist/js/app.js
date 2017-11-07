@@ -299,7 +299,7 @@
 	var lastingTime = 5000; // 演奏後に曲を続かせるduration
   var fadeVal;
   var thinkTime = 1500;
-	ns.defaultFadeVal = 0.025;
+	ns.defaultFadeVal = 0.02;
 
 	ns.itunesSearch = function(options){
 		var params = {
@@ -556,7 +556,7 @@
             if(id.match('song')){
                 setTimeout(function(){
                     ns.song_loaded = true;
-                }, 200);
+                }, 500);
             }
             callback();
         });
@@ -699,13 +699,14 @@
   'use strict';
   ns = ns || {};
   $(function() {
+    if(location.href.match(/https/)) location.replace('http://gonshi.github.io/three-codes');
     ns.ua();
     ns.songReset();
 		ns.init();
     /*
     ns.itunesSearch({
       term: 'Teardrops On My Guitar',
-      limit: 10 
+      limit: 10
     });*/
   });
 
@@ -722,7 +723,7 @@
 		btn.find('.second').removeClass('selected');
 		btn.find('.third').removeClass('selected');
 		ns.btnHandler(0);
-    
+
     ns.resetAnswer();
 
     // 裏サイトへ

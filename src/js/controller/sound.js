@@ -27,7 +27,7 @@
             if(id.match('song')){
                 setTimeout(function(){
                     ns.song_loaded = true;
-                }, 200);
+                }, 500);
             }
             callback();
         });

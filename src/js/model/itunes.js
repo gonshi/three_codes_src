@@ -8,7 +8,7 @@
 	var lastingTime = 5000; // 演奏後に曲を続かせるduration
   var fadeVal;
   var thinkTime = 1500;
-	ns.defaultFadeVal = 0.025;
+	ns.defaultFadeVal = 0.02;
 
 	ns.itunesSearch = function(options){
 		var params = {
